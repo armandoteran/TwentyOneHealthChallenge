@@ -3,4 +3,9 @@
     h1
       | Welcome to the 28H Coding Challenge!
 
-      = link_to 'Sign in', new_user_session_path
+    - if user_signed_in?
+        | Hi
+    - else
+        | Log in, please
+        = link_to 'Sign in', new_user_session_path
+
