@@ -4,8 +4,7 @@
       | Welcome to the 28H Coding Challenge!
 
     - if user_signed_in?
-        | Hi:
-        = current_user.email
+        | Hi #{current_user.email}!
         = button_to 'Sign out', destroy_user_session_path, method: :delete
     - else
         | Log in, please
