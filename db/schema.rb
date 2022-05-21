@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_21_145106) do
+ActiveRecord::Schema.define(version: 2022_05_21_163639) do
 
   create_table "states", force: :cascade do |t|
     t.string "full_name"
@@ -31,8 +31,11 @@ ActiveRecord::Schema.define(version: 2022_05_21_145106) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "fullname"
     t.date "date_of_birth"
+    t.integer "state_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["state_id"], name: "index_users_on_state_id"
   end
 
+  add_foreign_key "users", "states"
 end
