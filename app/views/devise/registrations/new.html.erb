@@ -1,6 +1,6 @@
 <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+<%= nested_form_for([resource_name, resource.with_state], url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
@@ -11,6 +11,13 @@
   <div class="field">
     <%= f.label :date_of_birth %><br />
     <%= f.date_field :date_of_birth, autofocus: true, autocomplete: "date_of_birth" %>
+  </div>
+
+  <div class="field">
+    <%= f.fields_for :state do |s| %><br />
+      <%= f.label :state, 'State where you currently live' %><br />
+      <%= s.text_field :full_name %><br />
+    <% end %><br />
   </div>
 
   <div class="field">
