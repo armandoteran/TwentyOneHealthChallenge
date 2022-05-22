@@ -21,7 +21,7 @@ STATES.each do |s|
     minimum_age: s[3]
   )
 end
-puts 'States have been created!'
+puts 'The states have been created!'
 
 puts 'Deleting Users ...'
 User.destroy_all
@@ -35,4 +35,4 @@ puts 'creating users'
     state_id: State.first.id
   )
 end
-puts 'Users have been created!'
+puts 'The users have been created!'
