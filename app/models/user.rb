@@ -3,11 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  belongs_to :state, optional: true
+  belongs_to :state
   accepts_nested_attributes_for :state
 
   def with_state
-    build_state if state.nil?
     self
   end
 end
