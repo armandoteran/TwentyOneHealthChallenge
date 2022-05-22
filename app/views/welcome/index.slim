@@ -1,7 +1,5 @@
 .row.mt-2
   .col-12.text-center
-    h1
-      | Welcome to the 28H Coding Challenge!
 
     - if user_signed_in?
         | Hi #{current_user.fullname}!
@@ -10,4 +8,5 @@
     - else
         | Log in, please
         = button_to 'Sign in', new_user_session_path
-
+    h1
+      | Choose a product
