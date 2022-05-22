@@ -31,7 +31,8 @@ puts 'creating users'
     fullname: "#{Faker::Name.female_first_name} #{Faker::Name.last_name}",
     email: Faker::Internet.email,
     date_of_birth: Faker::Date.between(from: '2000-01-01', to: '2009-01-01'),
-    password: '123456'
+    password: '123456',
+    state_id: State.first.id
   )
 end
 puts 'Users have been created!'
