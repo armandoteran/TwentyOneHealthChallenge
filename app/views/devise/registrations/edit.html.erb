@@ -13,8 +13,12 @@
     <%= f.date_field :date_of_birth, autofocus: true, autocomplete: "date_of_birth" %>
   </div>
 
+  <%= f.label :state %><br />
+  <%= f.collection_select(:state_id, State.all, :id, :full_name, prompt: true) %><br />
   <div class="field">
-    <%= f.label :state %><br />
+    <%= f.fields_for :state do |s| %><br />
+      <%= s.text_field :full_name %><br />
+    <% end %><br />
   </div>
 
   <div class="field">
