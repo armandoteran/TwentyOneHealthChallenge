@@ -36,3 +36,21 @@ puts 'creating users'
   )
 end
 puts 'The users have been created!'
+
+puts 'Deleting Products ...'
+Product.destroy_all
+puts 'The products have been deleted!'
+
+PRODUCTS.each do |product|
+  puts "--creating #{product[:name]}"
+  Product.create(
+    name: product[:name],
+    category: product[:category],
+    ndc: product[:ndc],
+    qty: product[:qty],
+    price: product[:price],
+    instructions: product[:instructions]
+  )
+end
+puts 'The Products have been created!'
+
