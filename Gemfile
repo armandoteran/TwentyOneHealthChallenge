@@ -76,3 +76,6 @@ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'mast
 
 # Nested form
 gem 'nested_form'
+
+# Simple form
+gem 'simple_form'
