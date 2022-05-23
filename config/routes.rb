@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   root to: 'welcome#index'
   # resources :products, only: %i[show]
-  resources :products,only: %i[show] do
+  resources :products, only: %i[show] do
     resources :orders, only: %i[new create]
   end
 end
