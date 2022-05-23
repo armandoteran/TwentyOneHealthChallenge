@@ -6,6 +6,6 @@ class OrdersController < ApplicationController
   private
 
   def product_set
-    @product = Product.find[params[:id]]
+    @product = Product.find(params[:product_id])
   end
 end
