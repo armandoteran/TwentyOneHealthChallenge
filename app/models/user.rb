@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   belongs_to :state
   accepts_nested_attributes_for :state
+  has_one :order, dependent: :destroy
 
   def with_state
     self
