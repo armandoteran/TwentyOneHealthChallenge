@@ -8,6 +8,12 @@
 
 require_relative '../config/initializers/constants'
 
+puts 'Deleting Products ...'
+Product.destroy_all
+puts 'The products have been deleted!'
+puts 'Deleting Users ...'
+User.destroy_all
+puts 'creating users'
 puts 'Deleting States ...'
 State.destroy_all
 puts 'States have been deleted!'
@@ -23,9 +29,6 @@ STATES.each do |s|
 end
 puts 'The states have been created!'
 
-puts 'Deleting Users ...'
-User.destroy_all
-puts 'creating users'
 3.times do
   User.create(
     fullname: "#{Faker::Name.female_first_name} #{Faker::Name.last_name}",
@@ -36,10 +39,6 @@ puts 'creating users'
   )
 end
 puts 'The users have been created!'
-
-puts 'Deleting Products ...'
-Product.destroy_all
-puts 'The products have been deleted!'
 
 PRODUCTS.each do |product|
   puts "--creating #{product[:name]}"
