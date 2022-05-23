@@ -5,11 +5,16 @@
         | Hi #{current_user.fullname}!
         = link_to 'Edit profile', edit_user_registration_path
         = button_to 'Sign out', destroy_user_session_path, method: :delete
+
     - else
         | Log in, please
         = button_to 'Sign in', new_user_session_path
-    h1
-      | Choose a product
-      - @products.each do |product|
-        = link_to product_path(product) do
-          h2= product.name
+
+    - if @order.nil?
+        h1
+          | Choose a product
+          - @products.each do |product|
+            = link_to product_path(product) do
+              h2= product.name
+    - else
+        | My product: #{@product.name}!
