@@ -9,7 +9,6 @@
     <div class="-col-6 m-auto">
 
       <%= simple_form_for [@product, @order] do |f| %>
-        <%= f.input :qty, as: :qty, label: :Quantity %>
         <% if current_user  %>
           <%= f.submit %>
         <% else %>
