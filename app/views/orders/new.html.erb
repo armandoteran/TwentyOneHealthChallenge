@@ -1,16 +1,17 @@
+<h2> Your order </h2>
 <h2><%= @product.name %></h2>
 <p>Category: <%= @product.category %></p>
-<p>Quantity: <%= @product.qty %></p>
-<p>Price: <%= @product.price %></p>
 <p>Instructions: <%= @product.instructions %></p>
+<p>Price: <%= @product.price %></p>
 
 <div class="container">
   <div class="row">
     <div class="-col-6 m-auto">
 
       <%= simple_form_for [@product, @order] do |f| %>
+          <%= f.hidden_field :product_id, value: @product.id %>
         <% if current_user  %>
-          <%= f.submit %>
+          <%= f.submit "Confirm" %>
         <% else %>
           <p> Please <%= link_to "log in", new_user_session_path %> before placing an order </p>
         <%end  %>
