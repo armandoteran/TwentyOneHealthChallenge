@@ -13,7 +13,7 @@ Product.destroy_all
 puts 'The products have been deleted!'
 puts 'Deleting Users ...'
 User.destroy_all
-puts 'creating users'
+puts 'The Users have been deletes'
 puts 'Deleting States ...'
 State.destroy_all
 puts 'States have been deleted!'
@@ -29,22 +29,23 @@ STATES.each do |s|
 end
 puts 'The states have been created!'
 
+puts 'Creating users ...'
 3.times do
   User.create(
     full_name: "#{Faker::Name.female_first_name} #{Faker::Name.last_name}",
     email: Faker::Internet.email,
     date_of_birth: Faker::Date.between(from: '2000-01-01', to: '2009-01-01'),
     password: '123456',
-    state_id: State.first.id
+    state_id: State.fifth.id
   )
 end
 puts 'The users have been created!'
 
+puts 'Creating products ...'
 PRODUCTS.each do |product|
   puts "--creating #{product[:name]}"
   Product.create(
     name: product[:name],
-    category: product[:category],
     ndc: product[:ndc],
     qty: product[:qty],
     price: product[:price],
@@ -52,4 +53,3 @@ PRODUCTS.each do |product|
   )
 end
 puts 'The Products have been created!'
-
