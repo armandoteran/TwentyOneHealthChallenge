@@ -3,12 +3,16 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  belongs_to :state
+  belongs_to :state, optional: true
   has_one :order, dependent: :destroy
   accepts_nested_attributes_for :state
 
   def with_state
-    self
+    if self.state_id.nil?
+      self.state_id = State.first.id
+    else
+      self
+    end
   end
 
   def user_age
