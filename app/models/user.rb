@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   belongs_to :state
-  accepts_nested_attributes_for :state
   has_one :order, dependent: :destroy
+  accepts_nested_attributes_for :state
 
   def with_state
     self
@@ -19,5 +19,9 @@ class User < ApplicationRecord
   def old_enough?
     state_minimum_age = State.find(self.state_id).minimum_age
     user_age >= state_minimum_age
+  end
+
+  def service_offered?
+    State.find(self.state_id).service_offered
   end
 end

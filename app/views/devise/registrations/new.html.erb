@@ -15,7 +15,7 @@
 
   <div class="field">
     <%= f.fields_for :state do |s| %><br />
-      <%= f.label :state, 'State where you currently live' %><br />
+      <%= s.label :state, 'State where you currently live' %><br />
       <%= s.text_field :full_name %><br />
     <% end %><br />
   </div>
