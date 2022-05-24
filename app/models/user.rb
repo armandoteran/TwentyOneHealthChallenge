@@ -10,4 +10,14 @@ class User < ApplicationRecord
   def with_state
     self
   end
+
+  def user_age
+    ac = AgeCalculator.new(self.date_of_birth)
+    ac.age
+  end
+
+  def old_enough?
+    state_minimum_age = State.find(self.state_id).minimum_age
+    user_age >= state_minimum_age
+  end
 end

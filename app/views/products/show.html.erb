@@ -5,5 +5,12 @@
 <p>Instructions: <%= @product.instructions %></p>
 <% if  !user_signed_in?%>
   <p><%= link_to 'Sign in', new_user_session_path%> to know if this product is available in your state and if you are old enough to get it</p>
+  <% else %>
+    <% if  current_user.old_enough?%>
+      <p>You are old enough to get it.</p>
+    <% else %>
+      <p>Sorry. You are not old enough to get it.</p>
+    <% end %>
 <% end %>
+
 <%= link_to "Buy", new_product_order_path(@product) %>
