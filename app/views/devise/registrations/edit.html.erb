@@ -1,6 +1,6 @@
 <h2>Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= nested_form_for([resource_name, resource.with_state], url: registration_path(resource_name)) do |f| %>
+<%= nested_form_for([resource, resource.with_state], as: resource, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field">
