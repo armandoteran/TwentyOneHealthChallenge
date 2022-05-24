@@ -31,7 +31,7 @@ puts 'The states have been created!'
 
 3.times do
   User.create(
-    fullname: "#{Faker::Name.female_first_name} #{Faker::Name.last_name}",
+    full_name: "#{Faker::Name.female_first_name} #{Faker::Name.last_name}",
     email: Faker::Internet.email,
     date_of_birth: Faker::Date.between(from: '2000-01-01', to: '2009-01-01'),
     password: '123456',

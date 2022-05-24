@@ -2,7 +2,7 @@
   .col-12.text-center
 
     - if user_signed_in?
-        | Hi #{current_user.fullname}!
+        | Hi #{current_user.full_name}!
         = link_to 'Edit profile', edit_user_registration_path
         = button_to 'Sign out', destroy_user_session_path, method: :delete
 
