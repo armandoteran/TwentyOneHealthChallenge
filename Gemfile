@@ -79,3 +79,6 @@ gem 'nested_form'
 
 # Simple form
 gem 'simple_form'
+
+# Age calculator
+gem 'age_calculator'
